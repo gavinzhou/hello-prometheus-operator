@@ -65,7 +65,7 @@ compile:
 remove:
 	rm -rf manifests && mkdir manifests
 
-init:
+init: $(JB_BINARY)
 	rm -rvf vendor
 	jb install	
 
