@@ -2,4 +2,3 @@ tmp/
 minikube-manifests/
 vendor/
 ./auth
-manifests
