@@ -11,9 +11,10 @@ local kp =
     prometheus+:: {
       prometheus+: {
         spec+: {
+          replicas: 1,
           remoteWrite: [
             {
-              url: 'http://127.0.0.1:1234/api/v1/receive',
+              url: 'http://127.0.0.1:19291/api/v1/receive',
             },
           ],
         },
