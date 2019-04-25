@@ -31,17 +31,9 @@ manifests: vendor example.jsonnet build.sh
 	rm -rf manifests
 	./build.sh ./examples/kustomize.jsonnet
 
-vendor: $(JB_BINARY) jsonnetfile.json jsonnetfile.lock.json
-	rm -rf vendor
-	$(JB_BINARY) install
-
 fmt:
 	find . -name 'vendor' -prune -o -name '*.libsonnet' -o -name '*.jsonnet' -print | \
 		xargs -n 1 -- $(JSONNET_FMT) -i
-
-test: $(JB_BINARY)
-	$(JB_BINARY) install
-	./test.sh
 
 test-e2e:
 	go test -timeout 55m -v ./tests/e2e -count=1
@@ -65,14 +57,8 @@ compile:
 remove:
 	rm -rf manifests && mkdir manifests
 
-init: $(JB_BINARY)
+init:
 	rm -rvf vendor
-	jb install	
-
-$(JB_BINARY):
-	go get -u github.com/jsonnet-bundler/jsonnet-bundler/cmd/jb
-
-$(EMBEDMD_BINARY):
-	go get github.com/campoy/embedmd
+	jb install
 
 .PHONY: generate generate-in-docker test test-in-docker fmt build compile init remove
