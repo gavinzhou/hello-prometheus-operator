@@ -1,7 +1,7 @@
 JSONNET_FMT := jsonnet fmt -n 2 --max-blank-lines 2 --string-style s --comment-style s
 
-JB_BINARY:=$(GOPATH)/bin/jb
-EMBEDMD_BINARY:=$(GOPATH)/bin/embedmd
+JB_BINARY := $(GOPATH)/bin/jb
+EMBEDMD_BINARY := $(GOPATH)/bin/embedmd
 
 all: generate fmt test
 
