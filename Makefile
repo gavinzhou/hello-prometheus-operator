@@ -56,10 +56,23 @@ test-in-docker: hack/jsonnet-docker-image
 	--workdir /go/src/github.com/coreos/kube-prometheus \
 	po-jsonnet make test
 
+build: remove
+	$(MAKE) compile
+
+compile:
+	jsonnet -J vendor -m manifests orangesys.jsonnet | xargs -I{} sh -c 'cat {} | gojsontoyaml > {}.yaml; rm -f {}' -- {}
+
+remove:
+	rm -rf manifests && mkdir manifests
+
+init:
+	rm -rvf vendor
+	jb install	
+
 $(JB_BINARY):
 	go get -u github.com/jsonnet-bundler/jsonnet-bundler/cmd/jb
 
 $(EMBEDMD_BINARY):
 	go get github.com/campoy/embedmd
 
-.PHONY: generate generate-in-docker test test-in-docker fmt
+.PHONY: generate generate-in-docker test test-in-docker fmt build compile init remove
