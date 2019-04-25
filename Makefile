@@ -24,8 +24,8 @@ generate-in-docker: hack/jsonnet-docker-image
 
 generate: manifests **.md
 
-**.md: $(EMBEDMD_BINARY) $(shell find examples) build.sh example.jsonnet
-	$(EMBEDMD_BINARY) -w `find . -name "*.md" | grep -v vendor`
+# **.md: $(EMBEDMD_BINARY) $(shell find examples) build.sh example.jsonnet
+# 	$(EMBEDMD_BINARY) -w `find . -name "*.md" | grep -v vendor`
 
 manifests: vendor example.jsonnet build.sh
 	rm -rf manifests
@@ -59,7 +59,7 @@ test-in-docker: hack/jsonnet-docker-image
 build: remove
 	$(MAKE) compile
 
-compile:
+compile: 
 	jsonnet -J vendor -m manifests orangesys.jsonnet | xargs -I{} sh -c 'cat {} | gojsontoyaml > {}.yaml; rm -f {}' -- {}
 
 remove:
