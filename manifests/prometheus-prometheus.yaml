@@ -15,7 +15,7 @@ spec:
   nodeSelector:
     beta.kubernetes.io/os: linux
   remoteWrite:
-  - url: http://127.0.0.1:19291/api/v1/receive
+  - url: http://127.0.0.1/api/v1/receive
   replicas: 1
   resources:
     requests:
@@ -31,4 +31,4 @@ spec:
   serviceAccountName: prometheus-k8s
   serviceMonitorNamespaceSelector: {}
   serviceMonitorSelector: {}
-  version: v2.8.1
+  version: v2.9.2

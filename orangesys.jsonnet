@@ -4,7 +4,7 @@ local kp =
     _config+:: {
       namespace: 'monitoring',
       versions+:: {
-        prometheus: "v2.8.1",
+        prometheus: "v2.9.2",
       },
     },
 
@@ -14,7 +14,7 @@ local kp =
           replicas: 1,
           remoteWrite: [
             {
-              url: 'http://127.0.0.1:19291/api/v1/receive',
+              url: 'http://127.0.0.1/api/v1/receive',
             },
           ],
         },
