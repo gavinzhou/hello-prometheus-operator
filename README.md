@@ -2,6 +2,12 @@
 
 ## Quickstart
 
+## Install Dep
+
+```sh
+go get github.com/jsonnet-bundler/jsonnet-bundler/cmd/jb
+```
+
 ### change your remote url with `orangesys.jsonnet` file
 
 example
