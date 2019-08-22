@@ -2,9 +2,10 @@
 
 ## Quickstart
 
-## Install Dep
+## Install Dep with mac
 
 ```sh
+brew install jsonnet
 go get github.com/jsonnet-bundler/jsonnet-bundler/cmd/jb
 ```
 
