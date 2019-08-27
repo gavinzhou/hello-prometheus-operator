@@ -14,7 +14,7 @@ local kp =
           replicas: 1,
           remoteWrite: [
             {
-              url: 'http://127.0.0.1/api/v1/receive',
+              url: 'https://demo.t.orangesys.io/api/v1/receive',
             },
           ],
         },
