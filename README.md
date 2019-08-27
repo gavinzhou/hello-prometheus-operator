@@ -14,7 +14,7 @@ go get github.com/jsonnet-bundler/jsonnet-bundler/cmd/jb
 example
 
 ```sh
-url: 'http://demo.t.orangesys.io/api/v1/receive',
+url: 'https://demo.t.orangesys.io/api/v1/receive',
 ```
 
 ### create manifest file
